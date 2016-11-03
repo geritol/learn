@@ -203,9 +203,9 @@ UI rules:
 - **Conditions** — Restrictions such as when rules, which can be applied to an event and action combination (for example, you can configure conditions so that hovering over a field displays a smart tip message only if the field contains a property value.)
 
 ### Data validation
-- Required fields
-- Editable settings -> verify patterns, formats
-- Control types -> verify values
+- **Required fields**
+- **Editable settings** -> verify patterns, formats
+- **Control types** -> verify values
 
-**Create:** App -> _right click case_ -> Create -> Process -> Validate
+**Create:** App -> _right click case_ -> Create -> Process -> Validate  
 **Associate with flow action:** flow diagram -> open flow action -> Validation tab -> set validation criteria
