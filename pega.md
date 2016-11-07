@@ -1,10 +1,3 @@
-[//]: <> ( # header)
-[//]: <> (dubble space line break)
-[//]: <> ([cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet))
-
-**Questions**
-- WorkParty: Required, vs Visible on Entry
-
 
 ---
 **Explore data model:** App -> _run a search on its name_ -> Data model -> Property
