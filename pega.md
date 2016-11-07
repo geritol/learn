@@ -209,3 +209,72 @@ UI rules:
 
 **Create:** App -> _right click case_ -> Create -> Process -> Validate  
 **Associate with flow action:** flow diagram -> open flow action -> Validation tab -> set validation criteria
+
+## Reports
+Data is displayed in columns, you cannot display a page in a column (you can return specific properties on the page, but not the entire page)
+
+**Create:** App explorer -> _select class_ -> Create -> Reports -> Report Definition  
+Main steps: create report definition rule, add columns, add filters
+
+Organizing results: summarize (aggregate), visual summary, group results, sort values
+
+### Optimizing data reports
+Pega stores cases in a relational db as blobs. By defualt these properties get dedicated columns in the db: case creation date, status and ID. Embedded properties are exposed in a different table, rather than the table that contains the BLOB. This allows Pega to establish a separate content for each exposed embedded property.
+
+**Optimize property:** App explorer -> _expand a class_ -> Data model -> Properties -> _right click on a prop you want to optimize_ -> Optimize for reporitng   
+
+Optimization launches a **background task**, which may take a long time to finish. To **view** background tasks: Designer Studio -> System -> Database -> Column Population Jobs
+
+## Data pages
+Data pages are used to retrieve data for your application, rega srdless of the source.
+The data page loads the data into memory (stored in the clipboard), so it is accessible for subsequent access.
+
+**Create:** Data explorer -> _right click data type_ -> Add data page
+
+- scope: defines who can access the data page
+  - thread: used when the data page is context-sensitive to a particular case
+  - requestor: allows to share data for a given session
+  - node: accessible to all users of the app on the same node
+- refresh strategy: defines, when the data is considered stale (the page is only reloaded if referenced)
+- structure: page or list (page for single record, lsit for multiple)
+- source:
+  - Connector: for getting data from external source
+  - [Data transform](#data-transform)
+  - Report dedfinition: used to return a list of data objects mapped in the application
+  - Look-up: used to return a specific data object mapped in the application.
+  - Load [activity](#activity): special situations, where other options are not suitable
+
+## Reference data
+Reference data defines permissible values for data fields.  
+_Reference data should be distinguished from master data. Master data represents key business entities, such as customers. Master data contains all the necessary detail — for example, an identifier, name, address, and date of account creation for a customer. Reference data consists of a list of permissible options with relevant metadata._
+
+### Local data storage
+Allows you to store reference (external) data as part of the application.
+
+**Create:** Data explorer -> _select data type_ -> Sources -> Create a local source  
+_The first screen displays the properties that are already available in the selected data type._
+
+## Connectors
+Connectors help integration between systems. You can parse, convert, and map data in either direction to or from the clipboard. Connectors can be ionvoked from data pages and activities.
+
+Steps to invoke a connector:
+- (use data transforms to set request data)
+  - Initialize connector
+  - Map outbound data
+  - Invoke Service (request out, response in)-
+  - Map Inbound data
+  - Finalize Connector
+- (use data transform to map response data)
+
+**Create (wizzard):** Designer studion -> Integration-> Connectors  
+wizzard process: 1) upload service metadata, 2) configure integration specifics, 3) select methods, 4) generate records
+
+Included standard connectors: SOAP, REST, SAP, EJB, JMS, MQ, File, and CMIS
+
+## Services
+Services are activities, that allow to expose data and functionality from Pega apps.
+
+## Testing
+- Live UI
+- Tracer
+- Clipboard
