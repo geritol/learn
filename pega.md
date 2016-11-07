@@ -1,5 +1,7 @@
 
 ---
+[System Architect exam blueprint](http://pearsonvue.com/pegasystems/csa7-2.pdf)
+
 **Explore data model:** App -> _run a search on its name_ -> Data model -> Property
 
 ---
