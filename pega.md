@@ -2,6 +2,21 @@
 ---
 [System Architect exam blueprint](http://pearsonvue.com/pegasystems/csa7-2.pdf)
 
+Exam:
+90 mins 70 +3 Questions
+
+| Test domains       | % of exam |
+|--------------------|-----------|
+| Application Design | 7%        |
+| Case design        | 30%       |
+| Data model         | 19%       |
+| Decision Design    | 7%        |
+| UI design          | 20%       |
+| Report design      | 7%        |
+| Integration        | 6%        |
+| Testing            | 4%        |
+| Total              | 100%      |
+
 **Explore data model:** App -> _run a search on its name_ -> Data model -> Property
 
 ---
