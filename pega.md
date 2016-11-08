@@ -35,42 +35,6 @@ _(business terms, must be complete, does not change owner, can be implemented an
 **Traceability** is the ability to link specifications back to business objectives and requirements, and forward to implementation artifacts, and test cases.
 
 ![
----
-[System Architect exam blueprint](http://pearsonvue.com/pegasystems/csa7-2.pdf)
-
-Exam:
-90 mins 70 +3 Questions  
-(65% needed to pass)
-
-| Test domains       | % of exam |
-|--------------------|-----------|
-| Application Design | 7%        |
-| [Case design](#case-design)| 30%       |
-| [Data model](#data-model-design)| 19%       |
-| Decision Design    | 7%        |
-| UI design          | 20%       |
-| Report design      | 7%        |
-| Integration        | 6%        |
-| Testing            | 4%        |
-| Total              | 100%      |
-
-**Explore data model:** App -> _run a search on its name_ -> Data model -> Property
-
----
-
-# <a name="case-design"/> Case design
-- **Requirements management:** process of collecting, analyzing, refining, and prioritizing product requirements, and then planning for their delivery
-- **Business objectives:** describe the business _value_ the application must provide, or the business needs the application must address
-- **Requirements** -> describe what the app needs to do to meet business needs  
-_(business terms, atomic, clear and concise, verifiable, consistent (no conflict between requirements))_
-- **Specifications** -> describe steps needed to meet the requirements  
-_(business terms, must be complete, does not change owner, can be implemented and tested)_
-
-**Access:** Designer Studio -> Application -> Profile -> Requirements / Specifications
-
-**Traceability** is the ability to link specifications back to business objectives and requirements, and forward to implementation artifacts, and test cases.
-
-![
 Relationship between Pega design artifacts](https://pdn.pega.com/sites/pdn.pega.com/files/images/te-content/project_delivery/specifications_and_traceability.png)
 
 ## Anatomy of a case
