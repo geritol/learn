@@ -20,6 +20,12 @@ Exam:
 **Explore data model:** App -> _run a search on its name_ -> Data model -> Property
 
 ---
+
+# Case design
+- Requirements management: process of collecting, analyzing, refining, and prioritizing product requirements, and then planning for their delivery
+- Business objectives:
+
+
 ## <a name="data-transform"/> /stub Data Transform
 Data Transform is an option for copying and manipulating data.
 
