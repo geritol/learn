@@ -23,7 +23,7 @@ Exam:
 
 # Case design
 - Requirements management: process of collecting, analyzing, refining, and prioritizing product requirements, and then planning for their delivery
-- Business objectives:
+- Business objectives: describe the business value the application must provide, or the business needs the application must address
 
 
 ## <a name="data-transform"/> /stub Data Transform
