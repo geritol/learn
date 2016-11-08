@@ -12,3 +12,8 @@ git branch branchName -> create a new brach
 git checkout branchName -> switch to brach  
 git merge fromBrach toBranch  
 git branch -D branchName -> delete branch
+
+git remote -v  
+_list  remote origin_   
+git remote set-url origin https://github.com/username/repo.git  
+_change remote_

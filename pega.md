@@ -3,23 +3,55 @@
 [System Architect exam blueprint](http://pearsonvue.com/pegasystems/csa7-2.pdf)
 
 Exam:
-90 mins 70 +3 Questions
+90 mins 70 +3 Questions  
+(65% needed to pass)
 
-| Test domains       | % of exam |
-|--------------------|-----------|
-| Application Design | 7%        |
-| Case design        | 30%       |
-| Data model         | 19%       |
-| Decision Design    | 7%        |
-| UI design          | 20%       |
-| Report design      | 7%        |
-| Integration        | 6%        |
-| Testing            | 4%        |
-| Total              | 100%      |
+| Test domains                     | % of exam |
+|----------------------------------|-----------|
+| Application Design               | 7%        |
+| [Case design](#case-design)      | 30%       |
+| [Data model](#data-model-design) | 19%       |
+| Decision Design                  | 7%        |
+| [UI design](#ui)                 | 20%       |
+| Report design                    | 7%        |
+| Integration                      | 6%        |
+| Testing                          | 4%        |
+| Total                            | 100%      |
 
 **Explore data model:** App -> _run a search on its name_ -> Data model -> Property
 
 ---
+
+# <a name="case-design"/> Case design
+- **Requirements management:** process of collecting, analyzing, refining, and prioritizing product requirements, and then planning for their delivery
+- **Business objectives:** describe the business _value_ the application must provide, or the business needs the application must address
+- **Requirements** -> describe what the app needs to do to meet business needs  
+_(business terms, atomic, clear and concise, verifiable, consistent (no conflict between requirements))_
+- **Specifications** -> describe steps needed to meet the requirements  
+_(business terms, must be complete, does not change owner, can be implemented and tested)_
+
+**Access:** Designer Studio -> Application -> Profile -> Requirements / Specifications
+
+**Traceability** is the ability to link specifications back to business objectives and requirements, and forward to implementation artifacts, and test cases.
+
+![
+Relationship between Pega design artifacts](https://pdn.pega.com/sites/pdn.pega.com/files/images/te-content/project_delivery/specifications_and_traceability.png)
+
+## Anatomy of a case
+
+**Case -> Stages -> Processes -> Process steps**  
+A case is work that delivers a business outcome.  
+Stages are the first level of organizing within cases the different tasks, or processes required. Recommended number per case: _5-9_.   
+Processes are the building block of stages, they define one or more paths the case must follow.  
+A process contains a series of tasks, or steps. _3-7_
+
+**Alternate stages**: stages that are not part of the normal case flow (eg. cancellation). Recommended number per case type: _3-5_.
+
+
+
+
+# <a name="data-model-design"/> Data model design
+
 ## <a name="data-transform"/> /stub Data Transform
 Data Transform is an option for copying and manipulating data.
 
@@ -35,6 +67,8 @@ _or_ click crosshair next to a Data transform input (eg.: at Work Parties)
 pyDefault is called whenever a new case is created, and allows you to set properties on creation.
 
 
+
+# <a name="process-design"/> Process Design
 
 ## <a name="activity"/> Activity
 
@@ -167,6 +201,10 @@ Property needs to be equal Value +
 **Switch** between circumstancing rules: App -> Goto Rule and expand  
 _or_ Open rule -> Actions -> View Versions
 
+
+
+# <a name="decision-design"/> Decision design
+
 ## Automated decision
 - **business rules**: evaluate case data
   - **when** conditions --> if()
@@ -188,7 +226,10 @@ Can be used in: flows, routers, activities, declare expressions.
 
 **Create:** App -> _right click a class_ -> +Create -> Decision -> Decision table / tree
 
-## User interface
+
+
+
+# <a name="ui"/> UI design
 UI rules:
 - **portal rule:** every UI is built inside one, they do not hold any visual elements
 - **harness rules** are refereced do contet
@@ -199,7 +240,7 @@ UI rules:
 **Access** UI deign interface: App ->  _expand rule_ -> User Interface
 - dynamic layout == resposive layout
 
-### Dynamic layout properties
+## Dynamic layout properties
 
 **Visible when conditions**:
 - _Always_
@@ -212,7 +253,7 @@ UI rules:
 - **Action** — A response performed by the system as a result of the user event (for example, when the user clicks a button, a case is created.)
 - **Conditions** — Restrictions such as when rules, which can be applied to an event and action combination (for example, you can configure conditions so that hovering over a field displays a smart tip message only if the field contains a property value.)
 
-### Data validation
+## Data validation
 - **Required fields**
 - **Editable settings** -> verify patterns, formats
 - **Control types** -> verify values
