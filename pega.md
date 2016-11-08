@@ -52,7 +52,24 @@ A process contains a series of tasks, or steps. _3-7_
 
 # <a name="data-model-design"/> Data model design
 
-## <a name="data-transform"/> /stub Data Transform
+The fundamental unit of the Pega data model — the element that stores the data — is called a property.
+
+Property types:
+- single value (eg. text, int, date etc.)
+- collection of related values:
+  - page (~ js class) .Customer.Name
+  - list (~ js array) .Items(3)
+  - group (~ js obj.) .Address(Work)
+
+**Create** data type: Data explorer -> dropdown -> Add data type -> New / Existing Data Type
+
+**Explore** data model: App -> _run a search on its name_ -> Data model -> Property
+
+Exaple. **Data model** of a purchase request:
+![data model](https://pdn.pega.com/sites/pdn.pega.com/files/images/te-content/integration_and_data/model/build/purchase_request_data_model.png)
+
+
+## <a name="data-transform"/> Data Transform
 Data Transform is an option for copying and manipulating data.
 
 **Creation:** App -> _right click a case_ -> +Create -> Data Transform  
@@ -64,7 +81,36 @@ _or_ click crosshair next to a Data transform input (eg.: at Work Parties)
 - [pyDefault](#data-transform-pyDefault)
 
 ### <a name="data-transform-pyDefault"/> pyDefault
-pyDefault is called whenever a new case is created, and allows you to set properties on creation.
+pyDefault is called whenever a new case is created, and allows you to set default properties on creation.
+
+## Declarative processing
+Declarative processing maintains computational relationships among properties. When input values change, the declarative process automatically updates related property values.  
+
+Declarative processing rules do not depend upon other rules, such as data transforms, activities, or user interface (UI) rules, to perform updates.
+MOre info on declarative processing [here](https://pdn.pega.com/declaratives-decisions-and-validation-overview/declaratives-decisions-and-validation-overview)
+
+### Declare Expressions
+
+Most often used tool for making autmated changes in Pega apps. Decllare expressions contains an **expression** a **source-** and a **traget property**.  
+
+**Create:**  App explorer -> _expand case_ -> Property -> _right click property_ -> Define  expression  
+**View**: App explorer -> _expand case_ -> Decision -> Define expression  
+**Set recalculation** under Change Tracking tab.
+
+Used in chain => declarative network
+
+- forward chaining: recalculate, when the variables used in the calculation changes
+- backward chaining: always recalculated, when referenced
+
+## Procedural processing
+Procedural processing depends upon rules, such as data transforms, activities, or user interface (UI) rules, to instruct the application when to look for a trigger event.
+
+# Data propagation
+Data propagation is the mechanism of **copying** data within the case hierarchy, which happens **on case creation**. If the data later changes on the parent page, it does not change on the child page. To use conditional logic to determine what to propagate, use a data transform.
+
+Data propagation is not limited to subcases. Data can also be propagated when creating spin-off cases. For example, a purchase request case might spin off a supplier case if a new supplier is provided in the purchase request.
+
+**Define**: Case explorer -> Settings -> Data propagation
 
 
 
