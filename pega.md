@@ -128,6 +128,26 @@ All the data generated as you create and process a case is stored on pyWorkPage.
 
 # <a name="process-design"/> Process Design
 
+## Flow
+ In Pega, a process is an instance of a flow rule. A flow models a business process in your application by using graphical shapes to define a sequence of events.
+
+ **Acess:** Case explorer -> _select case_ -> _select process_ -> Open process
+
+ **Standard shapes**
+
+![standard flow shapes](res/pega/flow.png)
+- assignment shape: task performed by a pearson
+- decision shape: automates decision with decision logic
+- utility shape: system action
+  - smart shapes: preconfigured utilities (eg. Send Email)
+- subprocess
+- start / end shapes
+
+**Draft mode**  
+Flow rules created by the Case designer or Pega express are in draft mode by default. It allows to bypass the validation of the flow config during development (like referencing rules that do no exist yet).  
+Flows with draft mode enabled cannot be run once the application is released.
+
+
 ## <a name="activity"/> Activity
 
 An Activity is an automated procedure, structured as a series of steps that execute in sequence.
