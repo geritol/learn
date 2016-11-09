@@ -83,15 +83,9 @@ _or_ click crosshair next to a Data transform input (eg.: at Work Parties)
 ### <a name="data-transform-pyDefault"/> pyDefault
 pyDefault is called whenever a new case is created, and allows you to set default properties on creation.
 
-## Declarative processing
-Declarative processing maintains computational relationships among properties. When input values change, the declarative process automatically updates related property values.  
-
-Declarative processing rules do not depend upon other rules, such as data transforms, activities, or user interface (UI) rules, to perform updates.
-MOre info on declarative processing [here](https://pdn.pega.com/declaratives-decisions-and-validation-overview/declaratives-decisions-and-validation-overview)
-
 ### Declare Expressions
 
-Most often used tool for making autmated changes in Pega apps. Decllare expressions contains an **expression** a **source-** and a **traget property**.  
+Most often used tool for making automated changes in Pega apps (like c = a + b). Declare expressions contains an **expression** a **source-** and a **traget property**.  
 
 **Create:**  App explorer -> _expand case_ -> Property -> _right click property_ -> Define  expression  
 **View**: App explorer -> _expand case_ -> Decision -> Define expression  
@@ -102,15 +96,33 @@ Used in chain => declarative network
 - forward chaining: recalculate, when the variables used in the calculation changes
 - backward chaining: always recalculated, when referenced
 
-## Procedural processing
+### Declarative processing
+Declarative processing maintains computational relationships among properties. When input values change, the declarative process automatically updates related property values.  
+
+Declarative processing rules do not depend upon other rules, such as data transforms, activities, or user interface (UI) rules, to perform updates.
+More info on declarative processing [here](https://pdn.pega.com/declaratives-decisions-and-validation-overview/declaratives-decisions-and-validation-overview)
+
+### Procedural processing
 Procedural processing depends upon rules, such as data transforms, activities, or user interface (UI) rules, to instruct the application when to look for a trigger event.
 
-# Data propagation
+## Data propagation
 Data propagation is the mechanism of **copying** data within the case hierarchy, which happens **on case creation**. If the data later changes on the parent page, it does not change on the child page. To use conditional logic to determine what to propagate, use a data transform.
 
 Data propagation is not limited to subcases. Data can also be propagated when creating spin-off cases. For example, a purchase request case might spin off a supplier case if a new supplier is provided in the purchase request.
 
 **Define**: Case explorer -> Settings -> Data propagation
+
+## Data storage in Pega
+Each data element is stored in memory on a **page**.  During case processing, each page remains in memory in a structure known as the **clipboard** (part of server memory reserved by Pega for the app data).
+
+- User pages: contain data created due to user actions (pyWorkPage is part of it, contains data entered into forms)
+- [Data pages](#data-pages): read-only data pages defined by data page rules
+- Linked property pages: read-only pages created by linked properties
+- System pages: contains pages about the current user session
+
+### pyWorkPage
+All the data generated as you create and process a case is stored on pyWorkPage. When you open a child case, the clipboard also contains the page pyWorkCover. pyWorkCover contains the case data for the parent case. This allows you to copy data between the parent case and the child case.
+
 
 
 
@@ -322,7 +334,7 @@ Pega stores cases in a relational db as blobs. By defualt these properties get d
 
 Optimization launches a **background task**, which may take a long time to finish. To **view** background tasks: Designer Studio -> System -> Database -> Column Population Jobs
 
-## Data pages
+## <a name="data-pages"/> Data pages
 Data pages are used to retrieve data for your application, rega srdless of the source.
 The data page loads the data into memory (stored in the clipboard), so it is accessible for subsequent access.
 
@@ -330,7 +342,7 @@ The data page loads the data into memory (stored in the clipboard), so it is acc
 
 - scope: defines who can access the data page
   - thread: used when the data page is context-sensitive to a particular case
-  - requestor: allows to share data for a given session
+  - requestor: allows to share data for a given (user) session
   - node: accessible to all users of the app on the same node
 - refresh strategy: defines, when the data is considered stale (the page is only reloaded if referenced)
 - structure: page or list (page for single record, lsit for multiple)
