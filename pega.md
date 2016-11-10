@@ -22,6 +22,19 @@ Exam:
 
 ---
 
+[Definitions](res/pega/definitions.md)
+
+**Rules and classes**  
+Pega uses the rules you create to generate application code.
+Within the app rules are groupped in classes.  
+Classes can contain rules or other classes.  
+Each app has 3 types of classes:
+- **work class:** contains rules that describe how to process a case or cases, such as processes, data elements, and user interfaces.  
+- **integration class:** contains rules that describe how the app interacts with other systems
+- **data class:** contains rules that describe the data objects
+
+Pega provides two methods for inheriting rules: pattern inheritance and directed inheritance.
+
 # <a name="case-design"/> Case design
 - **Requirements management:** process of collecting, analyzing, refining, and prioritizing product requirements, and then planning for their delivery
 - **Business objectives:** describe the business _value_ the application must provide, or the business needs the application must address
@@ -156,9 +169,12 @@ An Activity is an automated procedure, structured as a series of steps that exec
 **Adding to a process:**
 Select process -> open process -> + -> Utility
 
+**Method:** an operation that can be performed as a step of an activity  
+_like: Propety-Set, Page-New, Page-Remove, Apply-Data-Transform, Call_
+
 **Page context:**
 - Primary page: provides data context for the whole Activity
-- Step page: context during execution of a specific step, if not defined, Primary page becomes the Step page
+- Step page: context (an individual data page) during execution of a specific step, if not defined, Primary page becomes the Step page
 - Parameter page: contains activity parameters, which can be modified by the activity itself too
 
 **Best Practice:**
@@ -181,6 +197,10 @@ A Pega way of defining user groups and roles such as Customer or Manager.
  **Access:** App -> _select case type_ -> Process -> Work Parties -> pyCaseManagmentDefault  
  _or_ Case Designer -> _select a case_ -> Settings -> Parties
 
+- addWorkObjectParty API activity: creates the work party automatically from existing case or session
+- addParty flow action: allows users to add work party during an assignment
+-
+
 ```
 Party label: unique name
 Role: auto populated from Party label, identifies the group on the clipboard
@@ -193,7 +213,8 @@ Party class: must be the Data-Party class or one of its descendants
 
  The role identifies the party on the clipboard. Each work party is a page within the WorkParty page group, and the role is used as the page index. For example, a work party with the role Customer is identified on the clipboard as **WorkParty(Customer)**.
 
- ## <a name="sla"/>SLAs
+
+## <a name="sla"/>SLAs
 
 Advanced SLAs using rules: Case Designer -> _select a case_ -> _select assignment_ -> Goal & Deadline -> Use existing
 
@@ -215,9 +236,10 @@ Service level definitions
 - deadline interval
 - passed deadline interval repeats (can be for a fixed amount of time or indefinitely until the user completes the assignment)
 
+**.pxUrgencyAssign** records the urgency (sum of the following properties)  
 **.pxUrgencyWork** contains the default urgency value (defaults to 10)  
-**.pxUrgencyAssignSLA** contains the current urgency  
-**.pyUrgencyAssignAdjust** adds option for manual addjustments via actions
+**.pxUrgencyAssignSLA** urgency calculated from the service level rule (This value is the sum of the initial urgency and the urgency increments for the goal, deadline, and passed deadline intervals)   
+**.pyUrgencyAssignAdjust** adds option for manual adjustments via actions
 
 ## Routing
 Routing identifies who will work on an assignment as a case moves through a life cycle.
