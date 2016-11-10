@@ -24,9 +24,9 @@ Exam:
 
 [Definitions](res/pega/definitions.md)
 
-**Rules and classes**  
+## Rules and classes
 Pega uses the rules you create to generate application code.
-Within the app rules are groupped in classes.  
+Within the app, rules are groupped in classes.  
 Classes can contain rules or other classes.  
 Each app has 3 types of classes:
 - **work class:** contains rules that describe how to process a case or cases, such as processes, data elements, and user interfaces.  
@@ -98,7 +98,8 @@ pyDefault is called whenever a new case is created, and allows you to set defaul
 
 ### Declare Expressions
 
-Most often used tool for making automated changes in Pega apps (like c = a + b). Declare expressions contains an **expression** a **source-** and a **traget property**.  
+Most often used tool for making automated changes in Pega apps (like c = a + b).  
+Declare expressions contains an **expression** a **source-** and a **traget property**.  
 
 **Create:**  App explorer -> _expand case_ -> Property -> _right click property_ -> Define  expression  
 **View**: App explorer -> _expand case_ -> Decision -> Define expression  
@@ -382,13 +383,13 @@ The data page loads the data into memory (stored in the clipboard), so it is acc
 
 **Create:** Data explorer -> _right click data type_ -> Add data page
 
-- scope: defines who can access the data page
+- **scope:** defines who can access the data page
   - thread: used when the data page is context-sensitive to a particular case
   - requestor: allows to share data for a given (user) session
   - node: accessible to all users of the app on the same node
-- refresh strategy: defines, when the data is considered stale (the page is only reloaded if referenced)
-- structure: page or list (page for single record, lsit for multiple)
-- source:
+- **refresh strategy:** defines, when the data is considered stale (time after creation). The page is only reloaded if referenced and is stale.
+- **structure:** page or list (page for single record, list for multiple)
+- **source:**
   - Connector: for getting data from external source
   - [Data transform](#data-transform)
   - Report dedfinition: used to return a list of data objects mapped in the application
@@ -408,7 +409,7 @@ _The first screen displays the properties that are already available in the sele
 ## Connectors
 Connectors help integration between systems. You can parse, convert, and map data in either direction to or from the clipboard. Connectors can be ionvoked from data pages and activities.
 
-Steps to invoke a connector:
+Steps to invoke a connector (from data page/ activity):
 - (use data transforms to set request data)
   - Initialize connector
   - Map outbound data
@@ -424,6 +425,10 @@ Included standard connectors: SOAP, REST, SAP, EJB, JMS, MQ, File, and CMIS
 
 ## Services
 Services are activities, that allow to expose data and functionality from Pega apps.
+
+## Database Table Class Mapping tool
+Maps the columns of a database table to properties in a data class, to facilitate access to the contents of the database table.  
+Alternative: SQL connector, where you need to write SQL queries. Database Table Class Mapping Tool is the preferred way of integration.
 
 ## Testing
 - Live UI
