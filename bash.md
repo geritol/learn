@@ -50,6 +50,30 @@ man rm
 
 Bonus
 ```bash
+bc    # calculator
 cal   # calendar
 date  # today's date
 ```
+
+--------
+
+Redirect  
+```bash
+# Basic use: redirect standard output to a file
+echo hello > hello.txt  # redirect stdout
+echo hello 2> hello.txt # redirect stderr
+```
+
+Pipe
+```bash
+# pass the output of a program as an input to an other
+man cat | cat > test.txt
+# 1: get the man page for the cat method
+# 2: pass it as stdin for the second cat
+# 3: redirect second cat's output to test.txt
+
+# this was just for example, you could write
+# man cat > test.txt
+# to do the same
+```
+To understand why some word's letters are doubled, check out [this link](http://stackoverflow.com/questions/26634497/redirecting-man-page-output-to-file-results-in-double-letters-in-words/26635053#26635053).
