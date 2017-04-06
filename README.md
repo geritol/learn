@@ -1,5 +1,5 @@
 # learn
-a repository to keep track of programming rellted stuff I learn.
+a repository to keep track of programming related stuff I learn.
 
 ## this repo contains:
 - language related content, notes (files in the root folder)
