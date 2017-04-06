@@ -16,7 +16,7 @@ def decode(roman):
         current_value = base_numbers[roman[i]]
 
         # if the current item is smaller than the next one, subtract
-        if i + 1 != len_roman and base_numbers[roman[i + 1]] > current_value:
+        if i + 1 != len_roman and current_value < base_numbers[roman[i + 1]]:
             arabic -= current_value
             continue
 
