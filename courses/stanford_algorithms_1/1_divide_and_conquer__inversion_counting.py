@@ -19,15 +19,19 @@ def sort_and_count(lst):
 
     for i in range(len(lst)):
 
-        if len(list_a) != list_a_next_index and list_a[list_a_next_index] < list_b[list_b_next_index] if len(list_b) != list_b_next_index else True:
+        if list_a[list_a_next_index] < list_b[list_b_next_index]:
             result.append(list_a[list_a_next_index])
             list_a_next_index += 1
-        elif list_a[list_a_next_index] > list_b[list_b_next_index] if len(list_a) != list_a_next_index else True:
+        elif list_a[list_a_next_index] > list_b[list_b_next_index]:
             result.append(list_b[list_b_next_index])
             list_b_next_index += 1
             inversion_count += len(list_a[list_a_next_index:])
         else:
             raise ValueError('The list contains two matching values.')
+
+        if list_a_next_index == len(list_a) or list_b_next_index == len(list_b):
+            result += list_a[list_a_next_index:] + list_b[list_b_next_index:]
+            break
 
     return result, inversion_count
 
