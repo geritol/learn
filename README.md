@@ -16,5 +16,5 @@ a repository to keep track of programming related stuff I learn.
   - [x] [Software Testing - Udacity](https://www.udacity.com/course/software-testing--cs258)
 
 ### 2017
-  - [ ] [Calculus One - The Ohio State University](https://www.coursera.org/learn/calculus1)
+  - [x] [Calculus One - The Ohio State University](https://www.coursera.org/learn/calculus1)
   - [ ] [Algorithms: Design and Analysis - Stanford](https://lagunita.stanford.edu/courses/course-v1:Engineering+Algorithms1+SelfPaced/about)
