@@ -87,22 +87,6 @@ class Heap:
             self.repr[parent_index], self.repr[elements_index] = element, parent
             elements_index = parent_index
 
-    def _compare_with_parent(self, elements_index):
-        operator = self.operator
-        element = self.repr[elements_index]
-        parent_index = self._get_parent_index(elements_index)
-        if parent_index < 0: return False
-        parent = self.repr[parent_index]
-        comparison = eval('{}{}{}'.format(element, operator, parent))
-        return comparison
-
-    def _switch_with_parent(self, elements_index):
-        element = self.repr[elements_index]
-        parent_index = self._get_parent_index(elements_index)
-        parent = self.repr[parent_index]
-        self.repr[parent_index], self.repr[elements_index] = element, parent
-        return parent_index
-
     def _bubble_down(self, elements_index):
         """
         bubbles down and deletes and element specified by index
@@ -132,34 +116,8 @@ class Heap:
 
         return self._bubble_down(0)
 
-x = Heap('extract_min')
-x.add(1)
-x.add(2)
-print(x.extract_min())
-print(x.repr)
 
-# x = Heap('extract_min')
-# x.add(5)
-# print(x.repr)
-#
-# x.add(4)
-# print(x.repr)
-#
-# x.add(7)
-# print(x.repr)
-#
-# x.add(2)
-# print(x.repr)
-#
-# x.add(3)
-# print(x.repr)
-#
-# x.add(8)
-# print(x.repr)
-#
-# x.add(6)
-# print(x.repr)
-
+# to be tested with eg. pytest
 
 
 def test():
@@ -176,13 +134,17 @@ def test():
     x.add(3)
     assert x.repr[0] == 2
 
-def test_simple():
+
+def test_extract_min():
     x = Heap('extract_min')
     x.add(2)
     x.add(1)
     assert x.repr[0] == 1
     x.extract_min()
     assert x.repr[0] == 2
+
+
+def test_extract_max():
 
     x = Heap('extract_max')
     x.add(1)
