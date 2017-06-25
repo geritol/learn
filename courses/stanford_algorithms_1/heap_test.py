@@ -1,3 +1,4 @@
+import math
 from heap import Heap
 
 # to be tested with eg. pytest (functions can also be called manually)
