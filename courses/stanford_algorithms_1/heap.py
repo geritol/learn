@@ -1,4 +1,19 @@
-import math
+"""
+Heap
+
+    data structure that can be used to access and maintain min or max of values
+    2 important supported operations:
+        add         -> O(log n) # adds a simgle element
+        extract_min -> O(log n) # or extract_max
+
+    NOT IMPLEMENTED:
+        heapify initialise a heap in linear time (opposed to n log n with individual inserts)
+
+    usages: repeated minimum or maximum computations, sorting (see 7_heapsort.py), priority queues,
+            median maintenance (see 6_median_maintenance.py)
+
+@author: Gergő Tolnai
+"""
 
 
 class Heap:
