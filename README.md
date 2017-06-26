@@ -17,4 +17,4 @@ a repository to keep track of programming related stuff I learn.
 
 ### 2017
   - [x] [Calculus One - The Ohio State University](https://www.coursera.org/learn/calculus1)
-  - [ ] [Algorithms: Design and Analysis - Stanford](https://lagunita.stanford.edu/courses/course-v1:Engineering+Algorithms1+SelfPaced/about)
+  - [x] [Algorithms: Design and Analysis - Stanford](https://lagunita.stanford.edu/courses/course-v1:Engineering+Algorithms1+SelfPaced/about)
