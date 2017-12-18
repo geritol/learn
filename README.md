@@ -18,4 +18,4 @@ a repository to keep track of programming related stuff I learn.
 ### 2017
   - [x] [Calculus One - The Ohio State University](https://www.coursera.org/learn/calculus1)
   - [x] [Algorithms: Design and Analysis - Stanford](https://lagunita.stanford.edu/courses/course-v1:Engineering+Algorithms1+SelfPaced/about)
-  - [] [Programming Languages, Part A - Functional programing via SML](https://www.coursera.org/learn/programming-languages/home/welcome)
+  - [ ] [Programming Languages, Part A - Functional programing via SML](https://www.coursera.org/learn/programming-languages/home/welcome)
